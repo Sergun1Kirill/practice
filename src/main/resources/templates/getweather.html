@@ -1,0 +1,15 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<p th:text="'Weather in  ' + ${name} + ':'" />
+<p th:text="'Temperature:  ' + ${temp} " />
+<p th:text="'Temperature feels:  ' + ${temp_feels} " />
+<p th:text="'Temperature max:  ' + ${temp_max} " />
+<p th:text="'Temperature min:  ' + ${temp_min} " />
+<p th:text="'Pressure:  ' + ${pres} " />
+</body>
+</html>
