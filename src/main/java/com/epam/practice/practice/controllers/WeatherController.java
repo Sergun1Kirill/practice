@@ -18,6 +18,7 @@ public class WeatherController {
 
     @Autowired
     WeatherRepository weatherRepository;
+
     @GetMapping("/weather-list")
     public String weatherList(Model model){
         Iterable<WeatherInfo> weatherInfos = weatherRepository.findAll();
@@ -35,6 +36,7 @@ public class WeatherController {
         weatherRepository.save(weatherInfo);
         return "redirect:/weather-list";
     }
+
     @GetMapping("/weather-list/{city_name}")
     public String getCityWeather(@PathVariable (value = "city_name") String city_name, Model model) {
         if (!weatherRepository.existsById(city_name)) {
