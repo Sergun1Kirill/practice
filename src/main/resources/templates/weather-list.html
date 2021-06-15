@@ -8,7 +8,7 @@
     <div class="container mt-5">
         <div th:each="el: ${weatherInfos}" class="alert alert-info mt-2">
             <h3 th:text="${el.city_name}"/>
-            <p th:text="'Температура: ' +  ${el.temp - 272.2}"/>
+            <p th:text="'Температура: ' +  ${el.temp} + ' K'"/>
             <a th:href="'/weather-list/'+ ${el.city_name}"class="btn btn-warning">Больше информации</a><br>
 
         </div>
