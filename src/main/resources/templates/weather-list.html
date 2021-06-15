@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Список городов</title>
+</head>
+<body>
+    <div class="container mt-5">
+        <div th:each="el: ${weatherInfos}" class="alert alert-info mt-2">
+            <h3 th:text="${el.city_name}"/>
+            <p th:text="'Температура: ' +  ${el.temp - 272.2}"/>
+            <a th:href="'/weather-list/'+ ${el.city_name}"class="btn btn-warning">Больше информации</a><br>
+
+        </div>
+    </div>
+    <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
+        <a href="/weather-list/add">Добавить город</a><br>
+        <a href="/weather-list/remove">Удалить город</a><br>
+    </nav>
+</body>
+</html>

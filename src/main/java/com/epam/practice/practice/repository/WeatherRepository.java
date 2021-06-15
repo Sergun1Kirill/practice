@@ -1,7 +1,7 @@
 package com.epam.practice.practice.repository;
 
-import com.epam.practice.practice.model.Weather;
-import org.springframework.data.jpa.repository.JpaRepository;
+import com.epam.practice.practice.model.WeatherInfo;
+import org.springframework.data.repository.CrudRepository;
 
-public interface WeatherRepository extends JpaRepository<Weather, Long> {
+public interface WeatherRepository extends CrudRepository<WeatherInfo, String> {
 }

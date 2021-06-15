@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title> </title>
+</head>
+<body>
+<div class="container mt-5">
+    <div th:each="el: ${weatherInfo}" class="alert alert-info mt-2">
+        <h3 th:text="${el.city_name}"/>
+        <p th:text="'Температура: ' + ${el.temp}"/>
+        <p th:text="'Мин.температура: ' + ${el.temp_min}"/>
+        <p th:text="'Макс.температура: ' + ${el.temp_max}"/>
+        <p th:text="'Ощущается : ' + ${el.temp_feels}"/>
+        <p th:text="'Давление: ' + ${el.pressure}"/>
+        <p th:text="'Влажность: ' + ${el.humidity}"/>
+
+    </div>
+</div>
+
+</body>
+</html>
