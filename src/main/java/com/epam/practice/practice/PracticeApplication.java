@@ -1,13 +1,13 @@
-package com.epam.practice.web_meteo;
+package com.epam.practice.practice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class WebMeteoApplication {
+public class PracticeApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(WebMeteoApplication.class, args);
+        SpringApplication.run(PracticeApplication.class, args);
     }
 
 }

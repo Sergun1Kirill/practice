@@ -1,10 +1,10 @@
-package com.epam.practice.web_meteo;
+package com.epam.practice.practice;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class WebMeteoApplicationTests {
+class PracticeApplicationTests {
 
     @Test
     void contextLoads() {
