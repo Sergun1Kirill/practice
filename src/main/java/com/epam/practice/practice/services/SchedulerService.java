@@ -18,18 +18,14 @@ public class SchedulerService {
 
     @Autowired
     WeatherRepository weatherRepository;
-    List<WeatherInfo> weatherInfos = null;
 
     private static final Logger log = LoggerFactory.getLogger(SchedulerService.class);
 
-
     @Async
     @Scheduled(initialDelayString = "${scheduler.delay}", fixedDelayString = "${scheduler.delay}")
-    public void doWork() throws InterruptedException {
+    public Iterable<WeatherInfo> doWork() throws InterruptedException {
         log.info("Start process");
-
-        for(WeatherInfo all : weatherRepository.findAll()) {
-            log.info(all.toString());
-        }
+        Iterable<WeatherInfo> weatherInfos = weatherRepository.findAll();
+        return weatherInfos;
     }
 }

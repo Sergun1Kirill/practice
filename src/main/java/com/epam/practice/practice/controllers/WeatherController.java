@@ -2,6 +2,7 @@ package com.epam.practice.practice.controllers;
 
 import com.epam.practice.practice.model.WeatherInfo;
 import com.epam.practice.practice.repository.WeatherRepository;
+import com.epam.practice.practice.services.SchedulerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.sql.SQLSyntaxErrorException;
 import java.util.ArrayList;
 import java.util.Optional;
 
@@ -17,12 +19,17 @@ import java.util.Optional;
 public class WeatherController {
 
     @Autowired
+    private final SchedulerService schedulerService;
+
+    public WeatherController(SchedulerService schedulerService) {
+        this.schedulerService = schedulerService;
+    }
+
     WeatherRepository weatherRepository;
 
     @GetMapping("/weather-list")
-    public String weatherList(Model model){
-        Iterable<WeatherInfo> weatherInfos = weatherRepository.findAll();
-        model.addAttribute("weatherInfos",weatherInfos);
+    public String weatherList(Model model) throws InterruptedException {
+        model.addAttribute("weatherInfos",schedulerService.doWork());
         return  "weather-list";
     }
     @GetMapping("/weather-list/add")

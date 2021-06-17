@@ -1,6 +1,7 @@
 package com.epam.practice.practice.model;
 
 import org.json.JSONObject;
+import org.springframework.scheduling.annotation.Scheduled;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,6 +12,7 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
 import java.text.DecimalFormat;
+import java.time.Instant;
 
 @Entity
 public class WeatherInfo {
@@ -96,7 +98,7 @@ public class WeatherInfo {
 
     public WeatherInfo(String city_name) {
         this.city_name = city_name;
-        String output = getUrlContent("http://api.openweathermap.org/data/2.5/weather?q=" + city_name  + "&APPID=65e9936634de7608cc4a6afd5514a85c");
+        String output = getUrlContent("http://api.openweathermap.org/data/2.5/weather?q=" + city_name  + "&APPID=65e9936634de7608cc4a6afd5514a85c&units=metric");
         if(!output.isEmpty()) {
             JSONObject obj = new JSONObject(output);
             temp = obj.getJSONObject("main").getDouble("temp");
