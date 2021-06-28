@@ -24,7 +24,6 @@ public class SchedulerService {
     @Async
     @Scheduled(initialDelayString = "${scheduler.delay}", fixedDelayString = "${scheduler.delay}")
     public Iterable<WeatherInfo> doWork() throws InterruptedException {
-        log.info("Start process");
         Iterable<WeatherInfo> weatherInfos = weatherRepository.findAll();
         return weatherInfos;
     }

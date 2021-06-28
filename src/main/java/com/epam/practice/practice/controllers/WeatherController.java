@@ -19,13 +19,13 @@ import java.util.Optional;
 public class WeatherController {
 
     @Autowired
+    WeatherRepository weatherRepository;
     private final SchedulerService schedulerService;
 
     public WeatherController(SchedulerService schedulerService) {
         this.schedulerService = schedulerService;
     }
 
-    WeatherRepository weatherRepository;
 
     @GetMapping("/weather-list")
     public String weatherList(Model model) throws InterruptedException {
